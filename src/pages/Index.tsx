@@ -1,14 +1,22 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import React from 'react';
+import LoginCard from '../components/Login/LoginCard';
 
-const Index = () => {
+/**
+ * LoginPage is the primary page for user authentication.
+ * It sets up the full-screen, centered layout and renders the LoginCard component.
+ * This component corresponds to the 'LoginPage' in the component hierarchy and
+ * directly implements the 'LoginLayout' structural requirements for this specific view,
+ * ensuring the LoginCard is centered on the page against the application background.
+ */
+const LoginPage: React.FC = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
-    </div>
+    <main 
+      className="flex items-center justify-center h-screen bg-background"
+      role="main" // Enhances accessibility by defining the main content landmark
+    >
+      <LoginCard />
+    </main>
   );
 };
 
-export default Index;
+export default LoginPage;
