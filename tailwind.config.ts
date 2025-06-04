@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import { fontFamily as defaultFontFamily } from "tailwindcss/defaultTheme";
 
 export default {
 	darkMode: ["class"],
@@ -51,23 +52,21 @@ export default {
 				card: {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
-				},
-				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
 				}
+        // Removed 'sidebar' color configurations as they are not specified in the PRD's designSystem for the login page.
 			},
 			borderRadius: {
+        // This existing structure, combined with --radius: 0.5rem in index.css, ensures that:
+        // - 'rounded-lg' utility class maps to 0.5rem (8px).
+        // - 'rounded-md' utility class maps to calc(0.5rem - 2px) = 0.375rem (6px), which matches PRD's 'rounded-md' specification.
+        // - 'rounded-sm' utility class maps to calc(0.5rem - 4px) = 0.25rem (4px).
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
 			},
+      fontFamily: {
+        sans: ['var(--font-sans)', ...defaultFontFamily.sans],
+      },
 			keyframes: {
 				'accordion-down': {
 					from: {
