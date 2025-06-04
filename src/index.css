@@ -4,98 +4,59 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* PRD Colors */
+    --background: 202.4 70.3% 10.8%; /* PRD: #0A1F2B (page background) */
+    --foreground: 0 0% 100%; /* Default text on dark page background (e.g., white) */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%; /* PRD: #FFFFFF (surface for card) */
+    --card-foreground: 210 16.7% 14.9%; /* PRD: #212529 (primaryText on card) */
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%; /* Default, same as card */
+    --popover-foreground: 210 16.7% 14.9%; /* Default, same as card-foreground */
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 186.5 100% 37.8%; /* PRD: #00AFC1 (accentBlue) */
+    --primary-foreground: 0 0% 100%; /* White text on primary button */
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary colors - using sensible defaults and PRD secondaryText for muted-foreground */
+    --secondary: 210 40% 96.1%; /* A light gray, can be used for secondary elements (existing default) */
+    --secondary-foreground: 210 16.7% 14.9%; /* Dark text for on secondary elements, matches card-foreground (derived) */
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 210 40% 96.1%; /* Lighter gray for muted elements/text backgrounds (existing default) */
+    --muted-foreground: 228 9.8% 63.1%; /* PRD: #878A99 (secondaryText) */
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 186.5 100% 37.8%; /* PRD: #00AFC1 (accentBlue, can be same as primary) */
+    --accent-foreground: 0 0% 100%; /* White text on accent */
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84.2% 60.2%; /* Default destructive color (existing default) */
+    --destructive-foreground: 0 0% 100%; /* Text on destructive color (existing default) */
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 210 12.5% 92.4%; /* PRD: #E9EBEC (inputBorder, general border) */
+    --input: 210 12.5% 92.4%; /* PRD: #E9EBEC (inputBorder, specific for inputs) */
+    --ring: 186.5 100% 37.8%; /* PRD: #00AFC1 (accentBlue for focus rings) */
 
-    --radius: 0.5rem;
+    /* PRD Effects */
+    --radius: 0.5rem; /* Base radius. With existing Tailwind config for borderRadius, 'rounded-md' utility will resolve to 0.375rem (6px), matching PRD's 'rounded-md' spec. */
 
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* PRD Typography */
+    --font-sans: "Inter var", "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   }
 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
+  /* Removed .dark class definitions as the PRD specifies a single theme (which is dark-themed) 
+     and this theme is now applied directly to :root. 
+     The original .dark block defined similar values to what's now in :root, 
+     but also contained sidebar variables not relevant to the PRD. 
+     If a light/dark toggle is needed later, the PRD would need to specify a light theme configuration. */
 }
 
 @layer base {
   * {
-    @apply border-border;
+    @apply border-border; /* Uses 'border' color var defined above via Tailwind config */
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground; /* Uses 'background' and 'foreground' vars defined above */
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
